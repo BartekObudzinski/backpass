@@ -1,0 +1,24 @@
+{
+  "command": "backpass scan --host mac-home --since all --strict --json",
+  "exitCode": 0,
+  "host": "mac-home",
+  "node": "v24.13.1",
+  "platform": "darwin",
+  "scanned": 13322,
+  "matched": 62,
+  "self": 559,
+  "error": null,
+  "remoteCollected": 62,
+  "strictTierCounts": {
+    "1.5": 62
+  },
+  "harnessCounts": {
+    "claude": 36,
+    "cursor": 3,
+    "codex": 7,
+    "pi": 8,
+    "opencode": 5,
+    "grok": 3
+  },
+  "sampleTier15Reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home"
+}

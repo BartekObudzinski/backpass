@@ -1,0 +1,35 @@
+{
+  "controlledFault": "actual SSH fetch output truncated by 100 bytes with successful transport exit",
+  "firstRun": {
+    "total": 1,
+    "cached": 0,
+    "analyzed": 0,
+    "skipped": 0,
+    "failed": 1,
+    "usage": [],
+    "staleMemoryHash": 0,
+    "quotesNotInTrace": 0
+  },
+  "firstRunCommittedPayload": false,
+  "secondRun": {
+    "total": 1,
+    "cached": 0,
+    "analyzed": 1,
+    "skipped": 0,
+    "failed": 0,
+    "usage": [
+      {
+        "agent": "codex",
+        "usage": {
+          "input": 22660,
+          "output": 1195,
+          "cache_read": 11136,
+          "total": 34991
+        }
+      }
+    ],
+    "staleMemoryHash": 0,
+    "quotesNotInTrace": 0
+  },
+  "secondRunCachedBytes": 1023643
+}

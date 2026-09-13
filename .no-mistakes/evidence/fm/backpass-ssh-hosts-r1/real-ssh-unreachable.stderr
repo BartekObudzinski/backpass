@@ -1,0 +1,2 @@
+ssh 127.0.0.1 connecting
+warn 127.0.0.1: failed to start ssh control master: connect once interactively (ssh 127.0.0.1) to accept the host key - host skipped, run continues

@@ -1,0 +1,1160 @@
+{
+  "repo": "01M2CWCYWJAK6TC0CNRVH7YA2S",
+  "scope": "project",
+  "perHarness": {
+    "claude": {
+      "scanned": 401,
+      "matched": 0,
+      "cached": 400,
+      "skipped": 401,
+      "self": 0,
+      "error": null
+    }
+  },
+  "perHost": [
+    {
+      "host": "mac-home",
+      "node": "v24.13.1",
+      "platform": "darwin",
+      "hostname": "Kuns-Mac-mini.local",
+      "harnesses": {
+        "claude": {
+          "scanned": 672,
+          "classified": 672,
+          "self": 185,
+          "error": null
+        }
+      },
+      "scanned": 672,
+      "matched": 36,
+      "self": 185,
+      "skipped": 451,
+      "duplicates": 0,
+      "warnings": [],
+      "error": null
+    }
+  ],
+  "mix": {
+    "interactive": 30,
+    "nonInteractive": 6,
+    "total": 36
+  },
+  "transcripts": [
+    {
+      "harness": "claude",
+      "id": "claude-4221be12-8220-4ebf-986c-6e5667ac7516",
+      "nativeId": "4221be12-8220-4ebf-986c-6e5667ac7516",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/4221be12-8220-4ebf-986c-6e5667ac7516.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1788146756178,
+      "mtimeMs": 1788147759402.4504,
+      "bytes": 1023643,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "543cda6573f841410901b3f761d52ae85f4e4bfe9097e4c8f4cfce633cd4e72a",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-15ca508f-ea3e-46b8-bb81-25b1d4c64032",
+      "nativeId": "15ca508f-ea3e-46b8-bb81-25b1d4c64032",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/15ca508f-ea3e-46b8-bb81-25b1d4c64032.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1788116389923,
+      "mtimeMs": 1788121611079.1794,
+      "bytes": 1485027,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "6e6cc4890b5f57c8630ea4e0796d3cf3a6a1bcf311937ec17578d2609469b1b7",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-2ccaceec-afe3-4299-954a-aa9eb5ed5bd2",
+      "nativeId": "2ccaceec-afe3-4299-954a-aa9eb5ed5bd2",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/2ccaceec-afe3-4299-954a-aa9eb5ed5bd2.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1788050376977,
+      "mtimeMs": 1788053962561.147,
+      "bytes": 2287487,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "67d0be966fce3c2caa2c49ffcbb2840afb4a8d2d50188c028d4bc6bf85af6dfa",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-1192a121-122b-48c6-a32b-428e56fa8e65",
+      "nativeId": "1192a121-122b-48c6-a32b-428e56fa8e65",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/1192a121-122b-48c6-a32b-428e56fa8e65.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787519535981,
+      "mtimeMs": 1787526836561.314,
+      "bytes": 5893260,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "d371bf58e00e2f968bf3d8f920f72c86fb7869a5b30a1279972d7d8f1a88f6df",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-f762ab75-7025-45f7-96c7-529d832c0eb3",
+      "nativeId": "f762ab75-7025-45f7-96c7-529d832c0eb3",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/f762ab75-7025-45f7-96c7-529d832c0eb3.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787457884722,
+      "mtimeMs": 1787459445205.973,
+      "bytes": 205915,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "841da238e84629c173b6b66efb7af333a8dc21636c3b10a3cb679c35e4237c4b",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-091e26e3-c281-4812-b69c-2649e20ae8b3",
+      "nativeId": "091e26e3-c281-4812-b69c-2649e20ae8b3",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/091e26e3-c281-4812-b69c-2649e20ae8b3.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787455855466,
+      "mtimeMs": 1787457830462.9836,
+      "bytes": 592829,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "ca5d7a4af159be5c839be199d62378fe7bdf8fa911df4c78b90da3d1582cc148",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-527c81dd-9e1b-48c7-b6e7-c5845dda83ad",
+      "nativeId": "527c81dd-9e1b-48c7-b6e7-c5845dda83ad",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/527c81dd-9e1b-48c7-b6e7-c5845dda83ad.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787436111107,
+      "mtimeMs": 1787439308998.0352,
+      "bytes": 2571496,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "06acfb8cf7e819aa351895c0544e5715aece745c4775075ceb8bb4b53acf4160",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-9fca2113-2395-43e3-a3d0-bb1fe66b5a23",
+      "nativeId": "9fca2113-2395-43e3-a3d0-bb1fe66b5a23",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/9fca2113-2395-43e3-a3d0-bb1fe66b5a23.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787436881029,
+      "mtimeMs": 1787437324688.368,
+      "bytes": 2443210,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "af89d9607c812cb0c32b33f2341054eb2c6389fff4cef79965bf116a63fa5555",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-de24cd1e-842b-459b-ac85-62f109b93efd",
+      "nativeId": "de24cd1e-842b-459b-ac85-62f109b93efd",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/de24cd1e-842b-459b-ac85-62f109b93efd.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787435972198,
+      "mtimeMs": 1787436196797.1094,
+      "bytes": 1478059,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "d6a840474aa9286ceb64a879129278c7d47beca837bdb53844179a31ac8dbd54",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-8dab14c8-0b2f-4ea1-ab3d-ae6d8a69668d",
+      "nativeId": "8dab14c8-0b2f-4ea1-ab3d-ae6d8a69668d",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-3-backpass/8dab14c8-0b2f-4ea1-ab3d-ae6d8a69668d.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/3/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787435166315,
+      "mtimeMs": 1787435861807.761,
+      "bytes": 356111,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/3/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "db279960a9c3bfbaee125bada6aac082fab61cd9e18673c7fdfc380b2d85a0fe",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-fa8b7513-58ff-4111-adb9-e1460d61cf26",
+      "nativeId": "fa8b7513-58ff-4111-adb9-e1460d61cf26",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/fa8b7513-58ff-4111-adb9-e1460d61cf26.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787432536815,
+      "mtimeMs": 1787435344098.4905,
+      "bytes": 1492502,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "9f23663b4fb4dad2fab97a69bc42c5887b5882946c4f97fecb9088aad3fd5343",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-2765c2fc-130b-49a3-897c-2edfaa0430e0",
+      "nativeId": "2765c2fc-130b-49a3-897c-2edfaa0430e0",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/2765c2fc-130b-49a3-897c-2edfaa0430e0.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787435048606,
+      "mtimeMs": 1787435241504.2068,
+      "bytes": 208426,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "0deef00542140b8b03ceaf776acd4b4998c8981bb96789ffb2a143c3fb343be6",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-f47912e0-c608-4e0e-9a41-43c15e3d7343",
+      "nativeId": "f47912e0-c608-4e0e-9a41-43c15e3d7343",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/f47912e0-c608-4e0e-9a41-43c15e3d7343.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787434243032,
+      "mtimeMs": 1787434909135.161,
+      "bytes": 545772,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "44899695031922152fa244462f6fda0802750fc8f91ae1f1d8645716228c33fc",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-c7f52491-f0bd-4324-9fd9-6f0e3f6f3772",
+      "nativeId": "c7f52491-f0bd-4324-9fd9-6f0e3f6f3772",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/c7f52491-f0bd-4324-9fd9-6f0e3f6f3772.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787433355315,
+      "mtimeMs": 1787433650044.8235,
+      "bytes": 1265372,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "a285e79bb2137388e9c161af3c1c49c79988662069a58ce868035f4cea39dd23",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-8403e723-594a-4093-9736-59b5bfa24acf",
+      "nativeId": "8403e723-594a-4093-9736-59b5bfa24acf",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/8403e723-594a-4093-9736-59b5bfa24acf.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787432675421,
+      "mtimeMs": 1787433293034.78,
+      "bytes": 737861,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "d6f6c630f3b5635ae1076b6a2764378480edf05d383018d50f4edb29c8b08e0d",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-dd163c14-5439-4cdc-8839-0c6572d0b536",
+      "nativeId": "dd163c14-5439-4cdc-8839-0c6572d0b536",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-4-backpass/dd163c14-5439-4cdc-8839-0c6572d0b536.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/4/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787388160694,
+      "mtimeMs": 1787389040424.5383,
+      "bytes": 324814,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/4/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "84cc170264e250ce9d221328d65f8b6cb9497c20ec6b8fc975fd0e864cf73a54",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-551e2984-b15b-45bb-84bd-7d0c8b72dbd8",
+      "nativeId": "551e2984-b15b-45bb-84bd-7d0c8b72dbd8",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/551e2984-b15b-45bb-84bd-7d0c8b72dbd8.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787387539323,
+      "mtimeMs": 1787388851911.5857,
+      "bytes": 556992,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "64f5e3ad5517ef393719fb35e602e8aa7e7b7f4d70bd2441b18bca0c5b50706e",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-72482c61-70f7-4c69-95ff-0e0ec4e78872",
+      "nativeId": "72482c61-70f7-4c69-95ff-0e0ec4e78872",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/72482c61-70f7-4c69-95ff-0e0ec4e78872.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787388413966,
+      "mtimeMs": 1787388544667.9817,
+      "bytes": 102330,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "d5f1f4c434b7656145758e88a76574b652dd195f6300307da5e62420dc901d42",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-a1722b16-9199-4faa-86cd-82818263d851",
+      "nativeId": "a1722b16-9199-4faa-86cd-82818263d851",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-3-backpass/a1722b16-9199-4faa-86cd-82818263d851.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/3/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787387791579,
+      "mtimeMs": 1787388246589.2214,
+      "bytes": 192719,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/3/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "e89bc59559715be819d9494dd3d3c164a50a3f38c3c1587db2070d5dd61c06ff",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-6d7fabf8-db4f-47ff-b7c1-bc1d197ce54c",
+      "nativeId": "6d7fabf8-db4f-47ff-b7c1-bc1d197ce54c",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/6d7fabf8-db4f-47ff-b7c1-bc1d197ce54c.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "fm/backpass-tier-tokens-output-r1",
+      "title": null,
+      "model": null,
+      "startedAt": 1787388064681,
+      "mtimeMs": 1787388087005.2117,
+      "bytes": 29191,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "sdk-cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "e2afbce160da97fdfdd8ed2057a2a32b7c3d96cf0e30cf557aa6b6f84b1f9235",
+      "interaction": "non-interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-db4e692c-8bf1-433c-9ca7-ce7e55b26c15",
+      "nativeId": "db4e692c-8bf1-433c-9ca7-ce7e55b26c15",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/db4e692c-8bf1-433c-9ca7-ce7e55b26c15.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787387759193,
+      "mtimeMs": 1787387900581.975,
+      "bytes": 186805,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "260f4b487b2eb23bc8043b04484afb99c5eb7e6e33ec7abf11962bf3ac1ecc05",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-e90da05a-6758-42ae-8221-2c543c2296d6",
+      "nativeId": "e90da05a-6758-42ae-8221-2c543c2296d6",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/e90da05a-6758-42ae-8221-2c543c2296d6.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "fm/backpass-tier-tokens-output-r1",
+      "title": null,
+      "model": null,
+      "startedAt": 1787387746470,
+      "mtimeMs": 1787387747677.1123,
+      "bytes": 11743,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "sdk-cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "f0c9b98d440f35cb45ba7b99d9b5359bbab100d228b7996770e7bad3e57c8e34",
+      "interaction": "non-interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-4eaac7f3-e283-4aa8-98b8-748d188ed7bc",
+      "nativeId": "4eaac7f3-e283-4aa8-98b8-748d188ed7bc",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/4eaac7f3-e283-4aa8-98b8-748d188ed7bc.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "fm/backpass-tier-tokens-output-r1",
+      "title": null,
+      "model": null,
+      "startedAt": 1787387622330,
+      "mtimeMs": 1787387623679.729,
+      "bytes": 11752,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "sdk-cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "c45e773dbb85490a71355120294d1788ffb66801141e1dcec6a8dd694bf03775",
+      "interaction": "non-interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-d7160c44-e784-433b-9b0c-492df3e15d25",
+      "nativeId": "d7160c44-e784-433b-9b0c-492df3e15d25",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/d7160c44-e784-433b-9b0c-492df3e15d25.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787386604867,
+      "mtimeMs": 1787387108239.572,
+      "bytes": 209061,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "e044a887638f171a2ba8777c5bff1bf92e2f0423209697aac92e79ac11009c6e",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-32fd07f3-c6d8-4112-8c8c-4539854fda6c",
+      "nativeId": "32fd07f3-c6d8-4112-8c8c-4539854fda6c",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/32fd07f3-c6d8-4112-8c8c-4539854fda6c.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787385177457,
+      "mtimeMs": 1787385759454.5984,
+      "bytes": 343566,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "026ab4dbaaba8da83b98f590c10e86ef0e380c5d441aa7febb9018181d39415c",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-52ea8f25-a129-4584-b786-28d0200e040c",
+      "nativeId": "52ea8f25-a129-4584-b786-28d0200e040c",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/52ea8f25-a129-4584-b786-28d0200e040c.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787384629741,
+      "mtimeMs": 1787384933660.5398,
+      "bytes": 160051,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "2634a48fc980ca13e6fcbf1e3611608b7ad6d83be87e1a289338b3b9703f023a",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-bee431f6-6170-4d70-8133-ba029b711a40",
+      "nativeId": "bee431f6-6170-4d70-8133-ba029b711a40",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/bee431f6-6170-4d70-8133-ba029b711a40.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787378061823,
+      "mtimeMs": 1787379582873.5417,
+      "bytes": 566581,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "aae4782b092e296dc264f972f552b388e0ad4a7de5eb65eb4a381d5683553ff0",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-87889522-3acd-4ae4-88af-ae4206e5262b",
+      "nativeId": "87889522-3acd-4ae4-88af-ae4206e5262b",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/87889522-3acd-4ae4-88af-ae4206e5262b.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787371889367,
+      "mtimeMs": 1787372809128.5693,
+      "bytes": 677702,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "8750cbeb0431282b0930f715ff0beeef5b67cd5282786f0f77e95a5d84dd9138",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-7c10f134-28c8-4cfa-be05-53b9baa0c02f",
+      "nativeId": "7c10f134-28c8-4cfa-be05-53b9baa0c02f",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/7c10f134-28c8-4cfa-be05-53b9baa0c02f.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787367633977,
+      "mtimeMs": 1787369226789.9731,
+      "bytes": 1179470,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "5ba7e015582f23d9e7ba88eead790248b935baa7b5e703e1b95b363e24f61b39",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-17a6d4be-63bb-4942-b475-acfd31a92d2b",
+      "nativeId": "17a6d4be-63bb-4942-b475-acfd31a92d2b",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/17a6d4be-63bb-4942-b475-acfd31a92d2b.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787368479155,
+      "mtimeMs": 1787368480887.7515,
+      "bytes": 15298,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "sdk-cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "d6579d4220c78234b17a462ebba347a8f4743eddf1f6c1f582888168d99b9bf8",
+      "interaction": "non-interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-1997ab89-b386-4409-8e5d-3f11652d4d52",
+      "nativeId": "1997ab89-b386-4409-8e5d-3f11652d4d52",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/1997ab89-b386-4409-8e5d-3f11652d4d52.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787366906784,
+      "mtimeMs": 1787367709144.3389,
+      "bytes": 607576,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "272dbd9f13f98024428dbdad8ff63199e8ce77ac08554b69be4c5726ff854299",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-b1158939-d320-447f-9b33-8fea874840b9",
+      "nativeId": "b1158939-d320-447f-9b33-8fea874840b9",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-2-backpass/b1158939-d320-447f-9b33-8fea874840b9.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787353771572,
+      "mtimeMs": 1787357995695.049,
+      "bytes": 9335816,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "dd5649a0bf0e383ae2440da54291a41b1552c7309a613d6904ee9e1c9c581327",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-8b70430c-483d-477f-8685-14119151bbfc",
+      "nativeId": "8b70430c-483d-477f-8685-14119151bbfc",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/8b70430c-483d-477f-8685-14119151bbfc.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787353764815,
+      "mtimeMs": 1787355813961.4236,
+      "bytes": 926449,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "a79ea252386984358125ce110f9cc73706d92b57b075256a22a762d760fba98f",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-8f01f65f-b65d-451c-b2f7-49c83538eaf6",
+      "nativeId": "8f01f65f-b65d-451c-b2f7-49c83538eaf6",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/8f01f65f-b65d-451c-b2f7-49c83538eaf6.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "HEAD",
+      "title": null,
+      "model": null,
+      "startedAt": 1787347115177,
+      "mtimeMs": 1787351701247.505,
+      "bytes": 3018032,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "60590d37facd31c8932fc0ea58f3881b803824b363a0ea7b11921762366f2711",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-472617a2-b5dc-412f-9c3b-56613048738b",
+      "nativeId": "472617a2-b5dc-412f-9c3b-56613048738b",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/472617a2-b5dc-412f-9c3b-56613048738b.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "fm/backpass-build-s1",
+      "title": null,
+      "model": null,
+      "startedAt": 1787348836493,
+      "mtimeMs": 1787348850798.5977,
+      "bytes": 32939,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "sdk-cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "f38980ca474e7344354992016dfba7d9e35ed4e9027b30abe1af0c1682de832f",
+      "interaction": "non-interactive"
+    },
+    {
+      "harness": "claude",
+      "id": "claude-59c9f3c3-f8de-4376-bd87-281dbf964029",
+      "nativeId": "59c9f3c3-f8de-4376-bd87-281dbf964029",
+      "path": "/Users/kunchen/.claude/projects/-Users-kunchen--treehouse-backpass-14e27d-1-backpass/59c9f3c3-f8de-4376-bd87-281dbf964029.jsonl",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": "fm/backpass-build-s1",
+      "title": null,
+      "model": null,
+      "startedAt": 1787348829680,
+      "mtimeMs": 1787348830987.6343,
+      "bytes": 17582,
+      "contentSignature": null,
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {},
+      "interactionSignals": {
+        "entrypoint": "sdk-cli"
+      },
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "df0b060c879801ae5ccbd59b8de03b4cc1f7ab0ccc2afc2832356d4168df2d84",
+      "interaction": "non-interactive"
+    }
+  ]
+}

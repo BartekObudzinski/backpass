@@ -1,0 +1,213 @@
+{
+  "repo": "01M2CWCYWJAK6TC0CNRVH7YA2S",
+  "scope": "project",
+  "perHarness": {
+    "opencode": {
+      "scanned": 63,
+      "matched": 0,
+      "cached": 0,
+      "skipped": 63,
+      "self": 0,
+      "error": null
+    },
+    "hermes": {
+      "scanned": 0,
+      "matched": 0,
+      "cached": 0,
+      "skipped": 0,
+      "self": 0,
+      "error": null
+    }
+  },
+  "perHost": [
+    {
+      "host": "mac-home",
+      "node": "v24.13.1",
+      "platform": "darwin",
+      "hostname": "Kuns-Mac-mini.local",
+      "harnesses": {
+        "opencode": {
+          "scanned": 410,
+          "classified": 410,
+          "self": 0,
+          "error": null
+        },
+        "hermes": {
+          "scanned": 0,
+          "classified": 0,
+          "self": 0,
+          "error": null
+        }
+      },
+      "scanned": 410,
+      "matched": 5,
+      "self": 0,
+      "skipped": 405,
+      "duplicates": 0,
+      "warnings": [],
+      "error": null
+    }
+  ],
+  "mix": {
+    "interactive": 5,
+    "nonInteractive": 0,
+    "total": 5
+  },
+  "transcripts": [
+    {
+      "harness": "opencode",
+      "id": "opencode-ses_fd7653fd2ffegPtboBhWwB13ZE",
+      "nativeId": "ses_fd7653fd2ffegPtboBhWwB13ZE",
+      "path": "/Users/kunchen/.local/share/opencode/opencode.db",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": null,
+      "title": "New session - 2026-08-22T08:33:45.517Z",
+      "model": null,
+      "startedAt": 1787387625517,
+      "mtimeMs": 1787387625517,
+      "bytes": 0,
+      "contentSignature": "bb5bb1b3a77487eecdeb0af136abad36d6d9d84ba2480015de68f2e21a70372a",
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {
+        "sessionId": "ses_fd7653fd2ffegPtboBhWwB13ZE"
+      },
+      "interactionSignals": {},
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "52af500233c9753f797271177292d1e8ca972cfb07187feb7d4fc70c831d4b12",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "opencode",
+      "id": "opencode-ses_fd84e0532ffeEFF3RbOPoctPeq",
+      "nativeId": "ses_fd84e0532ffeEFF3RbOPoctPeq",
+      "path": "/Users/kunchen/.local/share/opencode/opencode.db",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": null,
+      "title": "New session - 2026-08-22T04:19:30.637Z",
+      "model": null,
+      "startedAt": 1787372370637,
+      "mtimeMs": 1787372370637,
+      "bytes": 0,
+      "contentSignature": "bb5bb1b3a77487eecdeb0af136abad36d6d9d84ba2480015de68f2e21a70372a",
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {
+        "sessionId": "ses_fd84e0532ffeEFF3RbOPoctPeq"
+      },
+      "interactionSignals": {},
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "085a2854fc48e3b62351fe6a0893762fd3486e0171514cab93afd9cd8e61d558",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "opencode",
+      "id": "opencode-ses_fd84e939fffeLodQR1p5yvaPbR",
+      "nativeId": "ses_fd84e939fffeLodQR1p5yvaPbR",
+      "path": "/Users/kunchen/.local/share/opencode/opencode.db",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/1/backpass",
+      "gitBranch": null,
+      "title": "New session - 2026-08-22T04:18:54.176Z",
+      "model": null,
+      "startedAt": 1787372334176,
+      "mtimeMs": 1787372334176,
+      "bytes": 0,
+      "contentSignature": "bb5bb1b3a77487eecdeb0af136abad36d6d9d84ba2480015de68f2e21a70372a",
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/1/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {
+        "sessionId": "ses_fd84e939fffeLodQR1p5yvaPbR"
+      },
+      "interactionSignals": {},
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "d055f8c4ef432e543fd526da594de433bf2a8417647a3b6ccd00d2b7ddd3f5c0",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "opencode",
+      "id": "opencode-ses_fd88bb28cffe7rfBxndjH1RIKD",
+      "nativeId": "ses_fd88bb28cffe7rfBxndjH1RIKD",
+      "path": "/Users/kunchen/.local/share/opencode/opencode.db",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": null,
+      "title": "New session - 2026-08-22T03:12:08.563Z",
+      "model": null,
+      "startedAt": 1787368328564,
+      "mtimeMs": 1787368328564,
+      "bytes": 0,
+      "contentSignature": "bb5bb1b3a77487eecdeb0af136abad36d6d9d84ba2480015de68f2e21a70372a",
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {
+        "sessionId": "ses_fd88bb28cffe7rfBxndjH1RIKD"
+      },
+      "interactionSignals": {},
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "2f8ff5056951413e4036c0b4b058cd70565dab6a13c2e83dd3fc58e389eb85fd",
+      "interaction": "interactive"
+    },
+    {
+      "harness": "opencode",
+      "id": "opencode-ses_fd893ed41ffekDAtnd8uUXSd74",
+      "nativeId": "ses_fd893ed41ffekDAtnd8uUXSd74",
+      "path": "/Users/kunchen/.local/share/opencode/opencode.db",
+      "cwd": "/Users/kunchen/.treehouse/backpass-14e27d/2/backpass",
+      "gitBranch": null,
+      "title": "New session - 2026-08-22T03:03:09.246Z",
+      "model": null,
+      "startedAt": 1787367789246,
+      "mtimeMs": 1787367789246,
+      "bytes": 0,
+      "contentSignature": "bb5bb1b3a77487eecdeb0af136abad36d6d9d84ba2480015de68f2e21a70372a",
+      "experimental": false,
+      "association": {
+        "tier": 1.5,
+        "confidence": "remote-clone",
+        "reason": "cwd is in clone /Users/kunchen/.treehouse/backpass-14e27d/2/backpass on mac-home",
+        "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+        "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S"
+      },
+      "extra": {
+        "sessionId": "ses_fd893ed41ffekDAtnd8uUXSd74"
+      },
+      "interactionSignals": {},
+      "project": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "projectRoot": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S",
+      "host": "mac-home",
+      "identity": "9b4a5d466f6b547669a5148e9e4e98433bf3e7177c25965962811e8e625e4a15",
+      "interaction": "interactive"
+    }
+  ]
+}

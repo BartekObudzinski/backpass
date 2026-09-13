@@ -1,0 +1,46 @@
+{
+  "live": true,
+  "stats": {
+    "fetched": 4,
+    "reused": 1,
+    "failed": 0,
+    "bytes": 104
+  },
+  "rows": [
+    {
+      "nativeId": "ses_fd7653fd2ffegPtboBhWwB13ZE",
+      "kind": "events",
+      "eventCount": 0,
+      "messageCount": 0,
+      "readable": false
+    },
+    {
+      "nativeId": "ses_fd84e0532ffeEFF3RbOPoctPeq",
+      "kind": "events",
+      "eventCount": 0,
+      "messageCount": 0,
+      "readable": false
+    },
+    {
+      "nativeId": "ses_fd84e939fffeLodQR1p5yvaPbR",
+      "kind": "events",
+      "eventCount": 0,
+      "messageCount": 0,
+      "readable": false
+    },
+    {
+      "nativeId": "ses_fd88bb28cffe7rfBxndjH1RIKD",
+      "kind": "events",
+      "eventCount": 0,
+      "messageCount": 0,
+      "readable": false
+    },
+    {
+      "nativeId": "ses_fd893ed41ffekDAtnd8uUXSd74",
+      "kind": "events",
+      "eventCount": 0,
+      "messageCount": 0,
+      "readable": false
+    }
+  ]
+}

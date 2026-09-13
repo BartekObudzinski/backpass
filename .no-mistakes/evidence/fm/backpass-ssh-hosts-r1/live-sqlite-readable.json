@@ -1,0 +1,20 @@
+{
+  "live": true,
+  "firstStats": {
+    "fetched": 1,
+    "reused": 0,
+    "failed": 0,
+    "bytes": 3210450
+  },
+  "secondStats": {
+    "fetched": 0,
+    "reused": 1,
+    "failed": 0,
+    "bytes": 0
+  },
+  "kind": "events",
+  "eventCount": 1076,
+  "messageCount": 243,
+  "readable": true,
+  "cacheUnchangedOnReuse": true
+}

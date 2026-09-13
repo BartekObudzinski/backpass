@@ -1,0 +1,59 @@
+{
+  "exitCodes": [
+    0,
+    0
+  ],
+  "transcripts": [
+    1,
+    1
+  ],
+  "summaries": [
+    {
+      "total": 1,
+      "cached": 0,
+      "analyzed": 1,
+      "skipped": 0,
+      "failed": 0,
+      "usage": [
+        {
+          "agent": "codex",
+          "usage": {
+            "input": 22655,
+            "output": 656,
+            "cache_read": 11136,
+            "total": 34447
+          }
+        }
+      ],
+      "staleMemoryHash": 0,
+      "quotesNotInTrace": 0
+    },
+    {
+      "total": 1,
+      "cached": 0,
+      "analyzed": 1,
+      "skipped": 0,
+      "failed": 0,
+      "usage": [
+        {
+          "agent": "codex",
+          "usage": {
+            "input": 354,
+            "output": 836,
+            "cache_read": 33664,
+            "total": 34854
+          }
+        }
+      ],
+      "staleMemoryHash": 0,
+      "quotesNotInTrace": 0
+    }
+  ],
+  "committedPayloads": [
+    {
+      "name": "44fd76e68aeb25572802d6620dca8b13376ba57afd4049997c8ab013e233db23",
+      "bytes": 1023643
+    }
+  ],
+  "temporaryFiles": []
+}

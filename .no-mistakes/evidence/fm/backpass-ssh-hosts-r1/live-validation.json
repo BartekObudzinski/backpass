@@ -1,0 +1,37 @@
+{
+  "live": true,
+  "verdict": "pass",
+  "host": "mac-home",
+  "scenarios": [
+    {
+      "name": "Remote sibling clone remains host-qualified tier 1.5 under strict mode",
+      "result": "pass",
+      "evidence": "live-strict-sibling-fixed.json",
+      "details": "36 live remote Claude sessions were retained, all at tier 1.5 with reasons naming mac-home and the remote clone."
+    },
+    {
+      "name": "Raw and SQLite transcripts fetch and reuse valid cache entries",
+      "result": "pass",
+      "evidence": ["live-fetch-cache.json", "live-sqlite-readable.json"],
+      "details": "The raw cached path existed with the remote descriptor's exact byte count; a normalized OpenCode transcript yielded 1,076 events and 243 messages; second runs reused both cache kinds without rewriting them."
+    },
+    {
+      "name": "Torn fetch is rejected and refetched next run",
+      "result": "pass",
+      "evidence": ["live-torn-first.json", "live-torn-refetch.json"],
+      "details": "A deliberately truncated stream from the actual remote produced remote fetch incomplete with no cache path; the next unmodified SSH run fetched all 66,825,263 bytes and yielded 7,790 events."
+    },
+    {
+      "name": "SSH masters are short, isolated, group-bound, and cache staging does not collide",
+      "result": "pass",
+      "evidence": ["live-master-hard-kill.json", "live-master-socket-check.json", "live-concurrent-masters-cache.json"],
+      "details": "Expanded paths were 67 bytes, concurrent runs used distinct templates, group SIGKILL left no master process or live control socket, and simultaneous fetches of one session both committed the complete payload without errors."
+    },
+    {
+      "name": "Actual trusted remote collection and fetch",
+      "result": "pass",
+      "evidence": ["live-strict-sibling-fixed.json", "live-fetch-cache.json", "live-sqlite-readable.json"],
+      "details": "Passwordless BatchMode SSH collected and fetched real Claude and OpenCode sessions from mac-home without installing or writing anything on the remote."
+    }
+  ]
+}

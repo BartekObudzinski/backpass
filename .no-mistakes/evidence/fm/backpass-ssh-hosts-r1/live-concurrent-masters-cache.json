@@ -1,0 +1,32 @@
+{
+  "live": true,
+  "privateMasterTemplates": true,
+  "templates": [
+    "/tmp/bp-67942-e5f1e76e3732-%C",
+    "/tmp/bp-67942-85ce69f1afa0-%C"
+  ],
+  "expandedLengths": [
+    67,
+    67
+  ],
+  "first": {
+    "fetched": 1,
+    "reused": 0,
+    "failed": 0,
+    "bytes": 1023643
+  },
+  "second": {
+    "fetched": 1,
+    "reused": 0,
+    "failed": 0,
+    "bytes": 1023643
+  },
+  "sameCommittedPath": true,
+  "cacheExists": true,
+  "cachedBytes": 1023643,
+  "descriptorBytes": 1023643,
+  "failed": [
+    null,
+    null
+  ]
+}

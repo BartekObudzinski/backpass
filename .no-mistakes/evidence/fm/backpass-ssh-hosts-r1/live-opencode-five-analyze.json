@@ -1,0 +1,14 @@
+{
+  "memoryFile": "AGENTS.md",
+  "transcripts": 5,
+  "summary": {
+    "total": 5,
+    "cached": 0,
+    "analyzed": 0,
+    "skipped": 5,
+    "failed": 0,
+    "usage": [],
+    "staleMemoryHash": 0,
+    "quotesNotInTrace": 0
+  }
+}

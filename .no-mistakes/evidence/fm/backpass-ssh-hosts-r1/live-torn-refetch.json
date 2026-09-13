@@ -1,0 +1,15 @@
+{
+  "live": true,
+  "stats": {
+    "fetched": 1,
+    "reused": 0,
+    "failed": 0,
+    "bytes": 66825263
+  },
+  "remoteError": null,
+  "cacheExists": true,
+  "cachedBytes": 66825263,
+  "descriptorBytes": 66825263,
+  "rawPathMatchesCache": true,
+  "eventCount": 7790
+}

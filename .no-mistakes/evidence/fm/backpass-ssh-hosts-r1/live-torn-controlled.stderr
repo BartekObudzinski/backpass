@@ -1,0 +1,6 @@
+ssh mac-home connecting
+ssh mac-home done · node v24.13.1 · 673 scanned
+warn mac-home: the fetch stream ended early; the missing transcripts are retried next run
+· analyzing 1 transcript(s) with codex effort=medium at jobs=4
+warn claude session 2026-08-30 20:25: mac-home: remote fetch incomplete
+  1/1 analyzed

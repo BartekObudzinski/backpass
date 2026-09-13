@@ -1,0 +1,61 @@
+{
+  "distinctControlPathTemplates": true,
+  "preKill": [
+    {
+      "runPgid": 66603,
+      "masterPid": 67283,
+      "controlPathTemplate": "/tmp/bp-66603-8a6f0bd42cf8-%C",
+      "socketPaths": [
+        "/tmp/bp-66603-8a6f0bd42cf8-91c7ad09a3010a28d8e0decf0a67c47a6c273b9f"
+      ],
+      "socketPathLengths": [
+        67
+      ]
+    },
+    {
+      "runPgid": 66606,
+      "masterPid": 67324,
+      "controlPathTemplate": "/tmp/bp-66606-2fd4ba850cb3-%C",
+      "socketPaths": [
+        "/tmp/bp-66606-2fd4ba850cb3-91c7ad09a3010a28d8e0decf0a67c47a6c273b9f"
+      ],
+      "socketPathLengths": [
+        67
+      ]
+    }
+  ],
+  "postKill": [
+    {
+      "runPgid": 66603,
+      "processesStillAlive": [],
+      "socketsStillPresent": [
+        "/tmp/bp-66603-8a6f0bd42cf8-91c7ad09a3010a28d8e0decf0a67c47a6c273b9f"
+      ],
+      "controlSocketChecks": [
+        {
+          "socketPath": "/tmp/bp-66603-8a6f0bd42cf8-91c7ad09a3010a28d8e0decf0a67c47a6c273b9f",
+          "checkExitCode": 255,
+          "live": false
+        }
+      ],
+      "staleSocketPathnamesRemoved": 1
+    },
+    {
+      "runPgid": 66606,
+      "processesStillAlive": [],
+      "socketsStillPresent": [
+        "/tmp/bp-66606-2fd4ba850cb3-91c7ad09a3010a28d8e0decf0a67c47a6c273b9f"
+      ],
+      "controlSocketChecks": [
+        {
+          "socketPath": "/tmp/bp-66606-2fd4ba850cb3-91c7ad09a3010a28d8e0decf0a67c47a6c273b9f",
+          "checkExitCode": 255,
+          "live": false
+        }
+      ],
+      "staleSocketPathnamesRemoved": 1
+    }
+  ],
+  "macOsSunPathLimit": 104,
+  "passed": true
+}

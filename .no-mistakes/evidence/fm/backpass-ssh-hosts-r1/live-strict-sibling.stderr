@@ -1,0 +1,2 @@
+ssh mac-home connecting
+warn mac-home: Cannot read properties of undefined (reading 'controlPath') - host skipped, run continues

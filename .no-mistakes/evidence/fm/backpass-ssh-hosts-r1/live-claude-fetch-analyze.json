@@ -1,0 +1,24 @@
+{
+  "memoryFile": "AGENTS.md",
+  "transcripts": 1,
+  "summary": {
+    "total": 1,
+    "cached": 0,
+    "analyzed": 1,
+    "skipped": 0,
+    "failed": 0,
+    "usage": [
+      {
+        "agent": "codex",
+        "usage": {
+          "input": 37809,
+          "output": 1147,
+          "cache_read": 12160,
+          "total": 51116
+        }
+      }
+    ],
+    "staleMemoryHash": 0,
+    "quotesNotInTrace": 0
+  }
+}

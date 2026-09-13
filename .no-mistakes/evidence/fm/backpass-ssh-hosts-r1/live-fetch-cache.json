@@ -1,0 +1,29 @@
+{
+  "live": true,
+  "firstStats": {
+    "fetched": 2,
+    "reused": 0,
+    "failed": 0,
+    "bytes": 1023669
+  },
+  "secondStats": {
+    "fetched": 0,
+    "reused": 2,
+    "failed": 0,
+    "bytes": 0
+  },
+  "raw": {
+    "exists": true,
+    "rawPathMatchesCache": true,
+    "cachedBytes": 1023643,
+    "descriptorBytes": 1023643,
+    "eventCount": 68,
+    "cacheUnchangedOnReuse": true
+  },
+  "sqlite": {
+    "kind": "events",
+    "rawPath": "/Users/kunchen/.no-mistakes/worktrees/26c81f74111f/01M2CWCYWJAK6TC0CNRVH7YA2S/.backpass/hosts/0638f45fc8312e1902ac74ccaf684e9d8f280eb389b0e205a7f2d9f3dd66ec8e",
+    "eventCount": 0,
+    "cacheUnchangedOnReuse": true
+  }
+}

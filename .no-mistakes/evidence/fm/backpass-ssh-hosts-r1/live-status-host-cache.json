@@ -1,0 +1,50 @@
+{
+  "repo": "01M2CWCYWJAK6TC0CNRVH7YA2S",
+  "budgets": [
+    {
+      "path": "AGENTS.md",
+      "label": "AGENTS.md",
+      "capTokens": 5000,
+      "current": 7849,
+      "projected": 7849,
+      "delta": 0,
+      "withinBudget": false,
+      "over": 2849,
+      "utilization": 1.5698,
+      "instructions": 46,
+      "pointerTo": null,
+      "separate": false
+    },
+    {
+      "path": "CLAUDE.md",
+      "label": "CLAUDE.md",
+      "capTokens": 5000,
+      "current": 23,
+      "projected": 23,
+      "delta": 0,
+      "withinBudget": true,
+      "over": 0,
+      "utilization": 0.0046,
+      "instructions": 1,
+      "pointerTo": "AGENTS.md",
+      "separate": false
+    }
+  ],
+  "crossSurfaceDuplicates": [],
+  "evidence": {
+    "ok": 1,
+    "failed": 0,
+    "skipped": 1
+  },
+  "scanCacheEntries": 2546,
+  "hosts": {
+    "mac-home": {
+      "entries": 2,
+      "bytes": 1023669
+    }
+  },
+  "summary": null,
+  "proposal": null,
+  "rejections": 0,
+  "skills": 0
+}

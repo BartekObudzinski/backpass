@@ -1,0 +1,1 @@
+error ssh destination "bad\"host" contains "\"", which no quoting can neutralise for the remote shell

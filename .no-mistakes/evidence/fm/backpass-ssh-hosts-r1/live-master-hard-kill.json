@@ -1,0 +1,10 @@
+{
+  "live": true,
+  "template": "/tmp/bp-37010-988fdd66e242-%C",
+  "expandedLength": 67,
+  "underMacLimit": true,
+  "masterPid": 37031,
+  "socketsBefore": 1,
+  "masterAliveAfterGroupKill": false,
+  "socketsAfter": 1
+}

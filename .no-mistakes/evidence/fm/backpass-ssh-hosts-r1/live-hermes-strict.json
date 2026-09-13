@@ -1,0 +1,43 @@
+{
+  "repo": "01M2CWCYWJAK6TC0CNRVH7YA2S",
+  "scope": "project",
+  "perHarness": {
+    "hermes": {
+      "scanned": 0,
+      "matched": 0,
+      "cached": 0,
+      "skipped": 0,
+      "self": 0,
+      "error": null
+    }
+  },
+  "perHost": [
+    {
+      "host": "mac-home",
+      "node": "v24.13.1",
+      "platform": "darwin",
+      "hostname": "Kuns-Mac-mini.local",
+      "harnesses": {
+        "hermes": {
+          "scanned": 0,
+          "classified": 0,
+          "self": 0,
+          "error": null
+        }
+      },
+      "scanned": 0,
+      "matched": 0,
+      "self": 0,
+      "skipped": 0,
+      "duplicates": 0,
+      "warnings": [],
+      "error": null
+    }
+  ],
+  "mix": {
+    "interactive": 0,
+    "nonInteractive": 0,
+    "total": 0
+  },
+  "transcripts": []
+}

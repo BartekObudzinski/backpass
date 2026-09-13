@@ -1,0 +1,36 @@
+{
+  "repo": "repo",
+  "scope": "project",
+  "perHarness": {
+    "claude": {
+      "scanned": 0,
+      "matched": 0,
+      "cached": 0,
+      "skipped": 0,
+      "self": 0,
+      "error": null
+    }
+  },
+  "perHost": [
+    {
+      "host": "127.0.0.1",
+      "node": null,
+      "platform": null,
+      "hostname": null,
+      "harnesses": {},
+      "scanned": 0,
+      "matched": 0,
+      "self": 0,
+      "skipped": 0,
+      "duplicates": 0,
+      "warnings": [],
+      "error": "failed to start ssh control master: connect once interactively (ssh 127.0.0.1) to accept the host key"
+    }
+  ],
+  "mix": {
+    "interactive": 0,
+    "nonInteractive": 0,
+    "total": 0
+  },
+  "transcripts": []
+}
