@@ -91,6 +91,18 @@ test("skillSearchPaths defaults to none and rejects non-array-of-strings values"
   }
 });
 
+test("skillSearchPaths rejects degenerate roots: the empty string and the filesystem root", () => {
+  // An empty root, or the filesystem root, would mark everything read-only / nothing
+  // stageable - reject them loudly at config validation rather than enforcing them.
+  for (const bad of ["", "   ", "/", "//", "\\", "C:\\", "C:/", "C:"]) {
+    assert.throws(() => loadConfig(tempRepo({ skillSearchPaths: ["~/.claude/skills", bad] })), UserError);
+  }
+  // A specific directory under the root is fine.
+  assert.deepEqual(loadConfig(tempRepo({ skillSearchPaths: ["/srv/shared-skills"] })).skillSearchPaths, [
+    "/srv/shared-skills",
+  ]);
+});
+
 test("skillSearchPaths expands ~ and feeds the read-only awareness list without touching skillsDir", () => {
   const home = os.homedir();
   const config = loadConfig(tempRepo({ skillSearchPaths: ["~/.hermes/skills-shared", "~/.claude/skills"] }));

@@ -1,8 +1,10 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
+import { expandHomePath } from "./config.js";
 import { anchoredHunks, countOccurrences, span } from "./diff.js";
-import { warn } from "./logger.js";
+import { UserError, warn } from "./logger.js";
 import { parseMemoryUnits, readOnlyResolvedPath, resolveMemoryPath } from "./memory.js";
 import { isDirectoryEntry, parseFrontmatter, skillBody } from "./skills.js";
 import { sha256 } from "./state.js";
@@ -68,7 +70,7 @@ export function prepareWorkspace({
   // A configured `skillSearchPaths` root is read-only in every scope, unlike the rest of
   // `skillDirs` - `allowExternal` lets user scope write its own harness directories
   // wherever they resolve, but must never reach a root the config promised to leave alone.
-  const searchPathIdentities = new Set(searchPathRoots.map(realPath).filter(Boolean));
+  const searchPathIdentities = canonicalizeSearchPathRoots(repo.root, searchPathRoots);
   const skillMappings = skillDirs.map((logical) => ({
     logical,
     staged: workspacePathFor(logical),
@@ -253,6 +255,42 @@ const READ_ONLY_UNWRITABLE = "resolves to a location that cannot be written";
 /** A configured `skillSearchPaths` root: read-only in every scope, never subject to `allowExternal`. */
 export const READ_ONLY_SEARCH_PATH = "resolves inside a configured skillSearchPaths root";
 
+/**
+ * Canonical identities of the configured `skillSearchPaths` roots, resolved EXACTLY the
+ * way a skill source is (`prepareWorkspace` builds a source with `path.join(repo.root, ...)`
+ * then compares `fs.realpathSync` identities): expand `~`, resolve a relative entry
+ * against the repository root - never the process working directory - then follow links.
+ * Building it any other way is how the read-only promise fails open: `fs.realpathSync` on a
+ * raw relative value resolves against `process.cwd()`, so it never matches the real source
+ * and the refusal never fires.
+ *
+ * Fail CLOSED: a configured root that exists but cannot be canonicalised raises a clear
+ * error naming `config.skillSearchPaths` rather than being dropped - silently discarding it
+ * would delete the promise instead of enforcing it. A not-yet-existing root (`ENOENT`)
+ * keeps its resolved absolute path as its identity: nothing can load from, or be written
+ * to, a directory that does not exist, so the promise stays whole either way.
+ */
+export function canonicalizeSearchPathRoots(repoRoot, roots = [], home = os.homedir()) {
+  const identities = new Set();
+  for (const raw of roots) {
+    const expanded = expandHomePath(raw, home);
+    const absolute = path.isAbsolute(expanded) ? expanded : path.resolve(repoRoot, expanded);
+    try {
+      identities.add(fs.realpathSync(absolute));
+    } catch (err) {
+      if (err && err.code === "ENOENT") {
+        identities.add(absolute);
+        continue;
+      }
+      throw new UserError(
+        `config.skillSearchPaths root "${raw}" cannot be resolved (${err.message})`,
+        "point it at a readable directory, or remove it from skillSearchPaths",
+      );
+    }
+  }
+  return identities;
+}
+
 /** The root a project-scope walk may not leave; user scope owns files anywhere. */
 function confinementRoot(repoRoot, allowExternal) {
   return allowExternal ? null : realPath(repoRoot) || path.resolve(repoRoot);
@@ -294,7 +332,7 @@ function stagingRefusal(absolute, confineTo, searchPathIdentities = null) {
  */
 export function skillStagingRefusal(repoRoot, skillPath, { allowExternal = false, searchPathRoots = [] } = {}) {
   const absolute = path.isAbsolute(skillPath) ? skillPath : path.join(repoRoot, skillPath);
-  const searchPathIdentities = new Set(searchPathRoots.map(realPath).filter(Boolean));
+  const searchPathIdentities = canonicalizeSearchPathRoots(repoRoot, searchPathRoots);
   return stagingRefusal(absolute, confinementRoot(repoRoot, allowExternal), searchPathIdentities);
 }
 

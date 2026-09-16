@@ -151,6 +151,14 @@ export const USER_CONFIG_DEFAULTS = {
   },
 };
 
+/** True for a filesystem root spelling: `/`, repeated separators, or a Windows volume root. */
+function isFilesystemRoot(p) {
+  const s = p.trim();
+  if (/^\/+$/.test(s) || /^\\+$/.test(s)) return true;
+  if (/^[A-Za-z]:[/\\]*$/.test(s)) return true;
+  return false;
+}
+
 /** Expand a leading `~` to the home directory; other paths pass through unchanged. */
 export function expandHomePath(p, home = os.homedir()) {
   if (typeof p !== "string") return p;
@@ -267,6 +275,19 @@ function validate(config, { kind = "project" } = {}) {
   if (config.skillSearchPaths !== undefined) {
     if (!Array.isArray(config.skillSearchPaths) || config.skillSearchPaths.some((d) => typeof d !== "string")) {
       throw new UserError("config.skillSearchPaths must be an array of paths");
+    }
+    for (const entry of config.skillSearchPaths) {
+      if (!entry.trim()) {
+        throw new UserError("config.skillSearchPaths entries must be non-empty path strings");
+      }
+      // The filesystem root as a search path would mark every path read-only and leave
+      // nothing stageable - a degenerate value that must be rejected, not enforced.
+      if (isFilesystemRoot(entry)) {
+        throw new UserError(
+          `config.skillSearchPaths entry "${entry}" must not be the filesystem root`,
+          "name a specific shared skills directory",
+        );
+      }
     }
   }
   const includeProjects = config.discovery.includeProjects;

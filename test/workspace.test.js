@@ -13,6 +13,7 @@ import {
   STRAY_OUTSIDE_SURFACE,
   STRAY_READ_ONLY_SEARCH_PATH,
   STRAY_UNWRITABLE,
+  canonicalizeSearchPathRoots,
   isSkillFilePath,
   measureWorkspace,
   parseSkillFile,
@@ -21,6 +22,7 @@ import {
   skillStagingRefusal,
   workspacePathFor,
 } from "../src/workspace.js";
+import { UserError } from "../src/logger.js";
 import { makeRepo, stageAndMeasure, writeIn } from "./helpers/staging.js";
 
 const AGENTS = "# M\n\n- one\n- two\n";
@@ -450,6 +452,79 @@ test("a file created under a search-path root during synthesis is reported stray
   assert.deepEqual(measured.stray, [
     { file: path.join(shared, "new", "SKILL.md"), reason: STRAY_READ_ONLY_SEARCH_PATH },
   ]);
+});
+
+test("a RELATIVE search-path root resolves against the repo root, not the process working directory", () => {
+  // The read-only promise fails open if a relative root is canonicalised against
+  // `process.cwd()` (the tests run with cwd = the backpass checkout, never the tmp repo),
+  // because the real skill source resolves against the repo root and the two never match.
+  const repo = makeRepo({ "AGENTS.md": AGENTS, "shared/db/SKILL.md": SKILL });
+  assert.notEqual(fs.realpathSync(process.cwd()), fs.realpathSync(repo.root), "cwd must differ from the repo root");
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+  const skillDirs = resolveProjectSkillDirs(repo.root, ".agents/skills", ["shared"]);
+
+  const workspace = prepareWorkspace({
+    state,
+    repo,
+    memoryFile,
+    skillsDir: ".agents/skills",
+    skillDirs,
+    allowExternal: true,
+    searchPathRoots: ["shared"],
+  });
+  assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor("shared"))), []);
+  assert.deepEqual(workspace.unstageable, [{ path: "shared/db", reason: READ_ONLY_SEARCH_PATH }]);
+
+  // The canonicalisation itself resolves a relative root against the repo root.
+  const identities = canonicalizeSearchPathRoots(repo.root, ["shared"]);
+  assert.ok(identities.has(fs.realpathSync(path.join(repo.root, "shared"))));
+});
+
+test("a ~-prefixed search-path root is home-expanded at the --target refusal site", () => {
+  const home = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), "backpass-home-")));
+  fs.mkdirSync(path.join(home, "shared", "db"), { recursive: true });
+  fs.writeFileSync(path.join(home, "shared", "db", "SKILL.md"), SKILL);
+  const repo = makeRepo({ "AGENTS.md": AGENTS });
+  const savedHome = process.env.HOME;
+  process.env.HOME = home;
+  try {
+    // The --target path asks `skillStagingRefusal` with the raw configured root; a
+    // "~"-prefixed root must be home-expanded there or realpath throws and it is dropped.
+    const refusal = skillStagingRefusal(repo.root, path.join(home, "shared", "db", "SKILL.md"), {
+      allowExternal: true,
+      searchPathRoots: ["~/shared"],
+    });
+    assert.equal(refusal, READ_ONLY_SEARCH_PATH);
+  } finally {
+    if (savedHome === undefined) delete process.env.HOME;
+    else process.env.HOME = savedHome;
+  }
+});
+
+test("an unresolvable search-path root fails closed rather than being silently dropped", () => {
+  const repo = makeRepo({ "AGENTS.md": AGENTS, afile: "x" });
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+  // `afile` is a regular file, so `afile/sub` cannot be canonicalised (ENOTDIR). The
+  // read-only promise must abort loudly, naming the config key, not vanish.
+  const badRoot = path.join(repo.root, "afile", "sub");
+  assert.throws(
+    () => canonicalizeSearchPathRoots(repo.root, [badRoot]),
+    (err) => err instanceof UserError && /skillSearchPaths/.test(err.message),
+  );
+  assert.throws(
+    () =>
+      prepareWorkspace({
+        state,
+        repo,
+        memoryFile,
+        skillsDir: ".agents/skills",
+        skillDirs: [".agents/skills"],
+        searchPathRoots: [badRoot],
+      }),
+    UserError,
+  );
 });
 
 test("a skill file linked out of the repo through an in-repo library is never staged", () => {
