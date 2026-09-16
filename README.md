@@ -682,6 +682,7 @@ CLI flags on top:
   "memoryFiles": ["AGENTS.md"],
   "budgetTokens": 5000,
   "skillsDir": ".agents/skills",
+  "skillSearchPaths": [],
   "maxEditsPerRun": null,
   "minGapEvidence": 2,
   "gapLedgerMaxAge": "90d",
@@ -727,6 +728,16 @@ regular settings; its path and user-only settings include `memoryFiles`, `skills
 `skillsDir` defaults to `.agents/skills`. To use an existing harness-loaded directory
 instead, such as `.claude/skills`, configure that path; a missing configured directory
 falls back to the default. Backpass normalizes path separators and trailing slashes.
+
+`skillSearchPaths` lists additional directories to consult for _existing_ skills,
+alongside `skillsDir` and consulted after it in list order. `~` is expanded. Use it when
+your canonical skill library lives outside the repo - a machine-wide shared tree, or
+`~/.claude/skills` - so backpass recognizes those skills as already existing: an
+`AGENTS.md` reference into the shared tree is not treated as dangling, a failed trigger
+tunes the shared skill's description instead of duplicating its content, and an
+extraction whose content substantially matches a shared skill becomes a pointer edit
+rather than new content. This is read-only awareness: backpass never writes into a
+search path - every write still targets only `skillsDir`.
 
 ```json
 {

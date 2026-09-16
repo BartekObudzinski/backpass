@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 
 import { readMemoryFile } from "../src/memory.js";
-import { loadProjectSkills, loadSkills, skillDescriptionTokens } from "../src/skills.js";
+import { loadProjectSkills, loadSkills, resolveProjectSkillDirs, skillDescriptionTokens } from "../src/skills.js";
 import { estimateTokens } from "../src/tokens.js";
 import { State } from "../src/state.js";
 import {
@@ -349,6 +349,35 @@ test("two links to one shared library are both billed, and exactly one of them i
       path: ".agents/skills/db/SKILL.md",
       reason: "the same file is already staged as .agents/skills/database/SKILL.md",
     },
+  ]);
+});
+
+test("a skill in an outside search path is loaded for awareness but never staged for writing", () => {
+  // The canonical library is a shared tree outside the repo, named by skillSearchPaths.
+  const shared = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), "backpass-search-path-")));
+  fs.mkdirSync(path.join(shared, "db"));
+  fs.writeFileSync(path.join(shared, "db", "SKILL.md"), SKILL);
+
+  const repo = makeRepo({ "AGENTS.md": AGENTS });
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+
+  // The search path joins the awareness roots (this is what config merges into skillsDirs).
+  const skillDirs = resolveProjectSkillDirs(repo.root, ".agents/skills", [shared]);
+  assert.ok(skillDirs.includes(shared), "the outside search path is an awareness root");
+  assert.deepEqual(
+    loadProjectSkills(repo.root, ".agents/skills", [shared]).map((s) => s.name),
+    ["db"],
+    "the shared skill is visible for reference/dedup awareness",
+  );
+
+  // Project scope (allowExternal false) must withhold the outside skill from staging, so
+  // synthesis can never emit an edit that writes into the shared library.
+  const workspace = prepareWorkspace({ state, repo, memoryFile, skillsDir: ".agents/skills", skillDirs });
+  assert.deepEqual([...workspace.originals.keys()], ["AGENTS.md"]);
+  assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor(shared))), []);
+  assert.deepEqual(workspace.unstageable, [
+    { path: path.join(shared, "db"), reason: "resolves outside the repository" },
   ]);
 });
 

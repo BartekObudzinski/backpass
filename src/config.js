@@ -47,6 +47,15 @@ export const DEFAULT_CONFIG = {
   memoryFiles: ["AGENTS.md", "CLAUDE.md"],
   budgetTokens: 5000,
   skillsDir: ".agents/skills",
+  /**
+   * Extra directories to consult for *existing* skills, alongside `skillsDir`, when
+   * deciding whether an AGENTS.md pointer already resolves, whether a failed trigger
+   * needs a description edit instead of duplicate content, and whether an extraction
+   * should point at a shared skill rather than create a new one. `~` is expanded. These
+   * are read-only awareness: writes always target only `skillsDir`, never a search path
+   * (a skill resolving outside the repo is withheld from the synthesis staging copy).
+   */
+  skillSearchPaths: [],
   /** `null` means adaptive: see `effectiveMaxEdits` in proposal.js. An integer pins it. */
   maxEditsPerRun: null,
   minGapEvidence: 2,
@@ -141,6 +150,14 @@ export const USER_CONFIG_DEFAULTS = {
     maxTranscriptsPerProject: null,
   },
 };
+
+/** Expand a leading `~` to the home directory; other paths pass through unchanged. */
+export function expandHomePath(p, home = os.homedir()) {
+  if (typeof p !== "string") return p;
+  if (p === "~") return home;
+  if (p.startsWith("~/")) return path.join(home, p.slice(2));
+  return p;
+}
 
 export function parseScopeKind(value) {
   if (value === undefined || value === null || value === "") return "project";
@@ -245,6 +262,11 @@ function validate(config, { kind = "project" } = {}) {
   if (config.skillsDirs !== undefined) {
     if (!Array.isArray(config.skillsDirs) || config.skillsDirs.some((d) => typeof d !== "string")) {
       throw new UserError("config.skillsDirs must be an array of paths");
+    }
+  }
+  if (config.skillSearchPaths !== undefined) {
+    if (!Array.isArray(config.skillSearchPaths) || config.skillSearchPaths.some((d) => typeof d !== "string")) {
+      throw new UserError("config.skillSearchPaths must be an array of paths");
     }
   }
   const includeProjects = config.discovery.includeProjects;
@@ -378,7 +400,13 @@ export function loadConfig(repoRoot, overrides = {}, { kind = "project" } = {}) 
   if (config.discovery.includeCursorIde && !config.discovery.harnesses.includes("cursor-ide")) {
     config.discovery.harnesses = [...config.discovery.harnesses, "cursor-ide"];
   }
-  return validate(config, { kind: scopeKind });
+  const validated = validate(config, { kind: scopeKind });
+  // `skillSearchPaths` is the read-side awareness key. It rides the existing `skillsDirs`
+  // awareness list (consulted after `skillsDir` in list order) rather than a second plumbing;
+  // `~` is expanded here so the loaders that join `repoRoot` never mishandle a home path.
+  const searchPaths = (validated.skillSearchPaths || []).map((p) => expandHomePath(p));
+  if (searchPaths.length) validated.skillsDirs = [...(validated.skillsDirs || []), ...searchPaths];
+  return validated;
 }
 
 /**

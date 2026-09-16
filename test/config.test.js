@@ -84,6 +84,25 @@ test("skillsDir rejects malformed configuration values", () => {
   }
 });
 
+test("skillSearchPaths defaults to none and rejects non-array-of-strings values", () => {
+  assert.deepEqual(loadConfig(tempRepo()).skillSearchPaths, []);
+  for (const skillSearchPaths of ["~/.claude/skills", 42, [1], [{}], {}]) {
+    assert.throws(() => loadConfig(tempRepo({ skillSearchPaths })), UserError);
+  }
+});
+
+test("skillSearchPaths expands ~ and feeds the read-only awareness list without touching skillsDir", () => {
+  const home = os.homedir();
+  const config = loadConfig(tempRepo({ skillSearchPaths: ["~/.hermes/skills-shared", "~/.claude/skills"] }));
+  // The write target is untouched; the search paths join the awareness roots, ~ expanded.
+  assert.equal(config.skillsDir, ".agents/skills");
+  assert.deepEqual(config.skillSearchPaths, ["~/.hermes/skills-shared", "~/.claude/skills"]);
+  assert.deepEqual(config.skillsDirs, [
+    path.join(home, ".hermes", "skills-shared"),
+    path.join(home, ".claude", "skills"),
+  ]);
+});
+
 test("--include-cursor-ide is the only way the deferred store is scanned", () => {
   const config = loadConfig(tempRepo(), { discovery: { includeCursorIde: true } });
   assert.ok(config.discovery.harnesses.includes("cursor-ide"));
