@@ -199,6 +199,7 @@ function resolveProjectScope(repo, config) {
     modelCwd: repo.root,
     memoryFiles: config.memoryFiles,
     skillDirs: config.skillsDirs || [],
+    skillSearchPaths: (config.skillSearchPaths || []).map((p) => expandUserPath(p)),
     overflowDir: config.skillsDir,
     associate: (descriptor, options = {}) => {
       const result = associateProject(descriptor, repo, {
@@ -231,6 +232,7 @@ function resolveUserScope(cwd, config, { strict = false, home = os.homedir(), as
   const memoryFiles = (config.memoryFiles || []).map((file) => pathInRoot(file, root, home));
   const overflowDir = pathInRoot(config.skillsDir || ".agents/skills", root, home);
   const skillDirs = (config.skillsDirs || []).map((dir) => pathInRoot(dir, root, home));
+  const skillSearchPaths = (config.skillSearchPaths || []).map((p) => expandUserPath(p, home));
   const repo = syntheticUserRepo(root);
   const stateDir = userStateDir();
   const associationCache = new Map();
@@ -275,6 +277,7 @@ function resolveUserScope(cwd, config, { strict = false, home = os.homedir(), as
     modelCwd: stateDir,
     memoryFiles,
     skillDirs,
+    skillSearchPaths,
     overflowDir,
     associate,
     associateRemote: (descriptor, { facts, host }) => associateUserRemote(descriptor, { facts, host, strict }),

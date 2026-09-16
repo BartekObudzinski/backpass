@@ -734,7 +734,8 @@ alongside `skillsDir` and consulted after it in list order. `~` is expanded. Use
 your canonical skill library lives outside the repo - a machine-wide shared tree, or
 `~/.claude/skills` - so backpass recognizes those skills as already existing: an
 `AGENTS.md` reference into the shared tree is not treated as dangling, a failed trigger
-tunes the shared skill's description instead of duplicating its content, and an
+against a shared skill is reported as already covered instead of proposed as a duplicate
+(backpass cannot tune its description - the file stays read-only, in every scope), and an
 extraction whose content substantially matches a shared skill becomes a pointer edit
 rather than new content. This is read-only awareness: backpass never writes into a
 search path - every write still targets only `skillsDir`.

@@ -9,13 +9,16 @@ import { loadProjectSkills, loadSkills, resolveProjectSkillDirs, skillDescriptio
 import { estimateTokens } from "../src/tokens.js";
 import { State } from "../src/state.js";
 import {
-  isSkillFilePath,
+  READ_ONLY_SEARCH_PATH,
   STRAY_OUTSIDE_SURFACE,
+  STRAY_READ_ONLY_SEARCH_PATH,
   STRAY_UNWRITABLE,
+  isSkillFilePath,
   measureWorkspace,
   parseSkillFile,
   prepareWorkspace,
   repoFingerprint,
+  skillStagingRefusal,
   workspacePathFor,
 } from "../src/workspace.js";
 import { makeRepo, stageAndMeasure, writeIn } from "./helpers/staging.js";
@@ -378,6 +381,74 @@ test("a skill in an outside search path is loaded for awareness but never staged
   assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor(shared))), []);
   assert.deepEqual(workspace.unstageable, [
     { path: path.join(shared, "db"), reason: "resolves outside the repository" },
+  ]);
+});
+
+test("a configured search path stays read-only even in user scope, unlike an ordinary external skills dir", () => {
+  const shared = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), "backpass-search-path-")));
+  fs.mkdirSync(path.join(shared, "db"));
+  fs.writeFileSync(path.join(shared, "db", "SKILL.md"), SKILL);
+
+  const repo = makeRepo({ "AGENTS.md": AGENTS });
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+  const skillDirs = resolveProjectSkillDirs(repo.root, ".agents/skills", [shared]);
+
+  // `allowExternal` is what lets user scope write its own harness directories wherever
+  // they resolve; it must never reach a root the config named in `skillSearchPaths`.
+  const workspace = prepareWorkspace({
+    state,
+    repo,
+    memoryFile,
+    skillsDir: ".agents/skills",
+    skillDirs,
+    allowExternal: true,
+    searchPathRoots: [shared],
+  });
+  assert.deepEqual([...workspace.originals.keys()], ["AGENTS.md"]);
+  assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor(shared))), []);
+  assert.deepEqual(workspace.unstageable, [{ path: path.join(shared, "db"), reason: READ_ONLY_SEARCH_PATH }]);
+
+  // `--target` asks this exact question before a run ever narrows to a name, and must
+  // get the same answer.
+  const refusal = skillStagingRefusal(repo.root, path.join(shared, "db", "SKILL.md"), {
+    allowExternal: true,
+    searchPathRoots: [shared],
+  });
+  assert.equal(refusal, READ_ONLY_SEARCH_PATH);
+});
+
+test("a file created under a search-path root during synthesis is reported stray, never a created skill", () => {
+  const shared = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), "backpass-search-path-new-")));
+
+  const repo = makeRepo({ "AGENTS.md": AGENTS });
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+  const skillDirs = resolveProjectSkillDirs(repo.root, ".agents/skills", [shared]);
+
+  const workspace = prepareWorkspace({
+    state,
+    repo,
+    memoryFile,
+    skillsDir: ".agents/skills",
+    skillDirs,
+    allowExternal: true,
+    searchPathRoots: [shared],
+  });
+  // The library is empty, so there is no pre-existing file to refuse in advance - only
+  // the created-file path can catch a model that writes a brand new one under the root.
+  writeIn(
+    workspace.root,
+    `${workspacePathFor(shared)}/new/SKILL.md`,
+    "---\nname: new\ndescription: New.\n---\n\nBody\n",
+  );
+  const measured = measureWorkspace(workspace);
+  assert.deepEqual(
+    measured.changes.filter((c) => c.kind === "created"),
+    [],
+  );
+  assert.deepEqual(measured.stray, [
+    { file: path.join(shared, "new", "SKILL.md"), reason: STRAY_READ_ONLY_SEARCH_PATH },
   ]);
 });
 
