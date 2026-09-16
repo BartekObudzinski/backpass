@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { expandHomePath } from "./config.js";
+import { expandHomePath, isAncestorOrEqual } from "./config.js";
 import { anchoredHunks, countOccurrences, span } from "./diff.js";
 import { UserError, warn } from "./logger.js";
 import { parseMemoryUnits, readOnlyResolvedPath, resolveMemoryPath } from "./memory.js";
@@ -269,24 +269,34 @@ export const READ_ONLY_SEARCH_PATH = "resolves inside a configured skillSearchPa
  * would delete the promise instead of enforcing it. A not-yet-existing root (`ENOENT`)
  * keeps its resolved absolute path as its identity: nothing can load from, or be written
  * to, a directory that does not exist, so the promise stays whole either way.
+ *
+ * A root that is the repository itself, or an ancestor of it, is dropped rather than
+ * registered: `config.js` validation rejects that shape at load time, but this function
+ * is also reachable directly (tests, future callers), and such a root would otherwise
+ * mark every file the repo owns as "inside a search path" - the repo's own containment
+ * must win for its own files.
  */
 export function canonicalizeSearchPathRoots(repoRoot, roots = [], home = os.homedir()) {
   const identities = new Set();
+  const repoIdentity = realPath(repoRoot) || path.resolve(repoRoot);
   for (const raw of roots) {
     const expanded = expandHomePath(raw, home);
     const absolute = path.isAbsolute(expanded) ? expanded : path.resolve(repoRoot, expanded);
+    let identity;
     try {
-      identities.add(fs.realpathSync(absolute));
+      identity = fs.realpathSync(absolute);
     } catch (err) {
       if (err && err.code === "ENOENT") {
-        identities.add(absolute);
-        continue;
+        identity = absolute;
+      } else {
+        throw new UserError(
+          `config.skillSearchPaths root "${raw}" cannot be resolved (${err.message})`,
+          "point it at a readable directory, or remove it from skillSearchPaths",
+        );
       }
-      throw new UserError(
-        `config.skillSearchPaths root "${raw}" cannot be resolved (${err.message})`,
-        "point it at a readable directory, or remove it from skillSearchPaths",
-      );
     }
+    if (isAncestorOrEqual(identity, repoIdentity)) continue;
+    identities.add(identity);
   }
   return identities;
 }

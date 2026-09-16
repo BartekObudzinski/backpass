@@ -159,6 +159,11 @@ function isFilesystemRoot(p) {
   return false;
 }
 
+/** True when `candidate` is `root`, or lies inside it. Both must already be resolved. */
+export function isAncestorOrEqual(root, candidate) {
+  return root === candidate || candidate.startsWith(`${root}${path.sep}`);
+}
+
 /** Expand a leading `~` to the home directory; other paths pass through unchanged. */
 export function expandHomePath(p, home = os.homedir()) {
   if (typeof p !== "string") return p;
@@ -247,7 +252,7 @@ export function sinceCutoff(since, now = Date.now()) {
   return window === null ? null : now - window;
 }
 
-function validate(config, { kind = "project" } = {}) {
+function validate(config, { kind = "project", repoRoot = null } = {}) {
   if (!Array.isArray(config.memoryFiles) || config.memoryFiles.length === 0) {
     throw new UserError("config.memoryFiles must be a non-empty array");
   }
@@ -287,6 +292,32 @@ function validate(config, { kind = "project" } = {}) {
           `config.skillSearchPaths entry "${entry}" must not be the filesystem root`,
           "name a specific shared skills directory",
         );
+      }
+      // A root that is the repo itself, or an ancestor of it (e.g. "~" with the repo
+      // checked out under $HOME), would mark every file the repo owns as "inside a
+      // search path" too, silently disabling writes to the repo's own configured skills
+      // directory. That is the same degenerate shape as the filesystem-root case above.
+      if (repoRoot) {
+        const expanded = expandHomePath(entry);
+        const absolute = path.isAbsolute(expanded) ? expanded : path.resolve(repoRoot, expanded);
+        let resolvedEntry;
+        try {
+          resolvedEntry = fs.realpathSync(absolute);
+        } catch {
+          resolvedEntry = absolute;
+        }
+        let resolvedRepoRoot;
+        try {
+          resolvedRepoRoot = fs.realpathSync(repoRoot);
+        } catch {
+          resolvedRepoRoot = path.resolve(repoRoot);
+        }
+        if (isAncestorOrEqual(resolvedEntry, resolvedRepoRoot)) {
+          throw new UserError(
+            `config.skillSearchPaths entry "${entry}" must not be the repository root, or an ancestor of it`,
+            "name a shared skills directory outside the repository",
+          );
+        }
       }
     }
   }
@@ -421,7 +452,7 @@ export function loadConfig(repoRoot, overrides = {}, { kind = "project" } = {}) 
   if (config.discovery.includeCursorIde && !config.discovery.harnesses.includes("cursor-ide")) {
     config.discovery.harnesses = [...config.discovery.harnesses, "cursor-ide"];
   }
-  const validated = validate(config, { kind: scopeKind });
+  const validated = validate(config, { kind: scopeKind, repoRoot });
   // `skillSearchPaths` is the read-side awareness key. It rides the existing `skillsDirs`
   // awareness list (consulted after `skillsDir` in list order) rather than a second plumbing;
   // `~` is expanded here so the loaders that join `repoRoot` never mishandle a home path.

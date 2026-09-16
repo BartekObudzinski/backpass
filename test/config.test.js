@@ -103,6 +103,27 @@ test("skillSearchPaths rejects degenerate roots: the empty string and the filesy
   ]);
 });
 
+test("skillSearchPaths rejects a root that is the repo root, or an ancestor of it", () => {
+  // e.g. skillSearchPaths: ["~"] with the repo checked out under $HOME must never
+  // silently disable writes to the repo's own configured skills directory.
+  const parent = tempRepo();
+  const nested = path.join(parent, "nested-repo");
+  fs.mkdirSync(nested);
+
+  fs.writeFileSync(path.join(nested, CONFIG_FILENAME), JSON.stringify({ skillSearchPaths: [parent] }));
+  assert.throws(() => loadConfig(nested), UserError, "an ancestor of the repo root is rejected");
+
+  fs.writeFileSync(path.join(nested, CONFIG_FILENAME), JSON.stringify({ skillSearchPaths: [nested] }));
+  assert.throws(() => loadConfig(nested), UserError, "the repo root itself is rejected");
+
+  // A directory nested INSIDE the repo is a different shape and stays accepted.
+  fs.writeFileSync(
+    path.join(nested, CONFIG_FILENAME),
+    JSON.stringify({ skillSearchPaths: [path.join(nested, "vendor")] }),
+  );
+  assert.deepEqual(loadConfig(nested).skillSearchPaths, [path.join(nested, "vendor")]);
+});
+
 test("skillSearchPaths expands ~ and feeds the read-only awareness list without touching skillsDir", () => {
   const home = os.homedir();
   const config = loadConfig(tempRepo({ skillSearchPaths: ["~/.hermes/skills-shared", "~/.claude/skills"] }));

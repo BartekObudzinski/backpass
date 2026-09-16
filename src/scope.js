@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { parseScopeKind, userStateDir } from "./config.js";
+import { expandHomePath, parseScopeKind, userStateDir } from "./config.js";
 import { associate as associateProject, associateRemote, globToRegExp } from "./discovery/association.js";
 import { UserError, info } from "./logger.js";
 import { gitProjectIdentity, gitToplevel, listWorktrees, normalizeRemote } from "./repo.js";
@@ -16,12 +16,7 @@ import { gitProjectIdentity, gitToplevel, listWorktrees, normalizeRemote } from 
  * `~/.config/backpass/user/` (0700). A run is exactly one scope, chosen by `--scope`.
  */
 
-export function expandUserPath(p, home = os.homedir()) {
-  if (typeof p !== "string") return p;
-  if (p === "~") return home;
-  if (p.startsWith("~/")) return path.join(home, p.slice(2));
-  return p;
-}
+export const expandUserPath = expandHomePath;
 
 /**
  * Path relative to `root` when it sits under it, otherwise the absolute path.

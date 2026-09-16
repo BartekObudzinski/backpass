@@ -502,6 +502,36 @@ test("a ~-prefixed search-path root is home-expanded at the --target refusal sit
   }
 });
 
+test("a search-path root that is an ancestor of the repo never makes the repo's own skillsDir read-only", () => {
+  // config.js validation rejects this shape at load time, but `canonicalizeSearchPathRoots`
+  // and `prepareWorkspace` are reachable directly, so the repo's own containment must win
+  // here too - e.g. skillSearchPaths: ["~"] with the repo checked out under $HOME.
+  const repo = makeRepo({ "AGENTS.md": AGENTS, ".agents/skills/db/SKILL.md": SKILL });
+  const ancestor = fs.realpathSync(os.tmpdir());
+  assert.ok(
+    fs.realpathSync(repo.root).startsWith(`${ancestor}${path.sep}`),
+    "the repo must be nested under the ancestor root for this test to be meaningful",
+  );
+
+  assert.equal(canonicalizeSearchPathRoots(repo.root, [ancestor]).size, 0);
+  assert.equal(canonicalizeSearchPathRoots(repo.root, [repo.root]).size, 0);
+
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+  const skillDirs = resolveProjectSkillDirs(repo.root, ".agents/skills");
+
+  const workspace = prepareWorkspace({
+    state,
+    repo,
+    memoryFile,
+    skillsDir: ".agents/skills",
+    skillDirs,
+    searchPathRoots: [ancestor],
+  });
+  assert.deepEqual(workspace.unstageable, []);
+  assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor(".agents/skills"))), ["db/SKILL.md"]);
+});
+
 test("an unresolvable search-path root fails closed rather than being silently dropped", () => {
   const repo = makeRepo({ "AGENTS.md": AGENTS, afile: "x" });
   const state = new State(repo.root).ensure();
