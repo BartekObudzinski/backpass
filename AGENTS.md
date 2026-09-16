@@ -240,8 +240,15 @@ list` only sees this clone. `attachSiblingClones` in `src/repo.js` also searches
   (a shared/fleet library); `loadConfig` expands `~` and folds it into the existing
   `skillsDirs` awareness list (consulted after `skillsDir`), so every read site already sees
   it. Writes never target a search path: `resolveOverflowTarget` only returns `skillsDir`,
-  and a skill resolving outside the repo is withheld from the synthesis staging copy
-  (`src/workspace.js`).
+  and a skill resolving outside the repo is withheld from the synthesis staging copy in
+  every scope, including user scope where `allowExternal` would otherwise let staging reach
+  any external root (`confinementReason`/`canonicalizeSearchPathRoots` in `src/workspace.js`).
+  A search-path skill still rides the synthesis fingerprint unlike an ordinary withheld
+  skill, so a direct write to one fails the run instead of escaping detection
+  (`assertRepoUntouched` in `src/synthesize.js`). A configured root that equals or contains
+  the repo root or `skillsDir` is rejected at config validation and dropped by
+  `canonicalizeSearchPathRoots`, so the repo's own files can never be marked read-only by
+  their own search path.
 - **Memory resolution is pointer-aware** (`resolveMemoryFiles` in `src/memory.js`): the
   first configured file is canonical, a `@AGENTS.md`-only CLAUDE.md is a pointer, and a
   second full file is warned about, never silently ignored or double-written.
