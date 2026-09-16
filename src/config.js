@@ -172,6 +172,66 @@ export function expandHomePath(p, home = os.homedir()) {
   return p;
 }
 
+/**
+ * Canonical identities of the configured `skillSearchPaths` roots, resolved EXACTLY the
+ * way a skill source is (`prepareWorkspace` builds a source with `path.join(repo.root, ...)`
+ * then compares `fs.realpathSync` identities): expand `~`, resolve a relative entry
+ * against the repository root - never the process working directory - then follow links.
+ * Building it any other way is how the read-only promise fails open: `fs.realpathSync` on a
+ * raw relative value resolves against `process.cwd()`, so it never matches the real source
+ * and the refusal never fires.
+ *
+ * Fail CLOSED: a configured root that exists but cannot be canonicalised raises a clear
+ * error naming `config.skillSearchPaths` rather than being dropped - silently discarding it
+ * would delete the promise instead of enforcing it. A not-yet-existing root (`ENOENT`)
+ * keeps its resolved absolute path as its identity: nothing can load from, or be written
+ * to, a directory that does not exist, so the promise stays whole either way.
+ *
+ * A root that is the repository itself, an ancestor of it (e.g. "~" with the repo checked
+ * out under $HOME), or that equals or contains the repo's own configured `skillsDir` (e.g.
+ * ".agents" covering ".agents/skills") is dropped rather than registered: `validate()`
+ * below rejects that shape at load time, but this function is also reachable directly
+ * (tests, future callers), and such a root would otherwise mark files backpass exists to
+ * write as "inside a search path" - the repo's own containment must win for its own files.
+ */
+export function canonicalizeSearchPathRoots(repoRoot, roots = [], skillsDir = null, home = os.homedir()) {
+  // Reference points (the repo root and its skillsDir) resolve leniently: any resolution
+  // failure falls back to the plain absolute path rather than aborting, since a not-yet-
+  // created skillsDir must still win its own containment check.
+  const resolveReference = (candidate) => {
+    const absolute = path.isAbsolute(candidate) ? candidate : path.resolve(repoRoot, candidate);
+    try {
+      return fs.realpathSync(absolute);
+    } catch {
+      return absolute;
+    }
+  };
+  const identities = new Set();
+  const repoIdentity = resolveReference(repoRoot);
+  const skillsIdentity = skillsDir ? resolveReference(skillsDir) : null;
+  for (const raw of roots) {
+    const expanded = expandHomePath(raw, home);
+    const absolute = path.isAbsolute(expanded) ? expanded : path.resolve(repoRoot, expanded);
+    let identity;
+    try {
+      identity = fs.realpathSync(absolute);
+    } catch (err) {
+      if (err && err.code === "ENOENT") {
+        identity = absolute;
+      } else {
+        throw new UserError(
+          `config.skillSearchPaths root "${raw}" cannot be resolved (${err.message})`,
+          "point it at a readable directory, or remove it from skillSearchPaths",
+        );
+      }
+    }
+    if (isAncestorOrEqual(identity, repoIdentity)) continue;
+    if (skillsIdentity && isAncestorOrEqual(identity, skillsIdentity)) continue;
+    identities.add(identity);
+  }
+  return identities;
+}
+
 export function parseScopeKind(value) {
   if (value === undefined || value === null || value === "") return "project";
   if (value === "project" || value === "user") return value;
@@ -293,31 +353,18 @@ function validate(config, { kind = "project", repoRoot = null } = {}) {
           "name a specific shared skills directory",
         );
       }
-      // A root that is the repo itself, or an ancestor of it (e.g. "~" with the repo
-      // checked out under $HOME), would mark every file the repo owns as "inside a
-      // search path" too, silently disabling writes to the repo's own configured skills
-      // directory. That is the same degenerate shape as the filesystem-root case above.
-      if (repoRoot) {
-        const expanded = expandHomePath(entry);
-        const absolute = path.isAbsolute(expanded) ? expanded : path.resolve(repoRoot, expanded);
-        let resolvedEntry;
-        try {
-          resolvedEntry = fs.realpathSync(absolute);
-        } catch {
-          resolvedEntry = absolute;
-        }
-        let resolvedRepoRoot;
-        try {
-          resolvedRepoRoot = fs.realpathSync(repoRoot);
-        } catch {
-          resolvedRepoRoot = path.resolve(repoRoot);
-        }
-        if (isAncestorOrEqual(resolvedEntry, resolvedRepoRoot)) {
-          throw new UserError(
-            `config.skillSearchPaths entry "${entry}" must not be the repository root, or an ancestor of it`,
-            "name a shared skills directory outside the repository",
-          );
-        }
+      // A root that is the repo itself, an ancestor of it (e.g. "~" with the repo checked
+      // out under $HOME), or that equals or contains the repo's own configured skillsDir
+      // (e.g. ".agents" covering ".agents/skills") would mark files backpass exists to
+      // write as "inside a search path" too - the same degenerate shape as the
+      // filesystem-root case above. `canonicalizeSearchPathRoots` is the one place that
+      // decides this, both here (reject at load) and at runtime (drop for direct callers) -
+      // never duplicate the comparison.
+      if (repoRoot && canonicalizeSearchPathRoots(repoRoot, [entry], config.skillsDir).size === 0) {
+        throw new UserError(
+          `config.skillSearchPaths entry "${entry}" must not be the repository root or its skillsDir, or an ancestor of either`,
+          "name a shared skills directory outside the repository",
+        );
       }
     }
   }

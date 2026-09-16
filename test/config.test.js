@@ -124,6 +124,24 @@ test("skillSearchPaths rejects a root that is the repo root, or an ancestor of i
   assert.deepEqual(loadConfig(nested).skillSearchPaths, [path.join(nested, "vendor")]);
 });
 
+test("skillSearchPaths rejects a root that equals or contains the repo's own skillsDir", () => {
+  // skillsDir defaults to ".agents/skills". A search path of ".agents" contains it, and
+  // ".agents/skills" itself equals it - both would mark the repo's own write target
+  // read-only if they were not rejected the same way the repo-ancestor case already is.
+  const containing = tempRepo();
+  fs.writeFileSync(path.join(containing, CONFIG_FILENAME), JSON.stringify({ skillSearchPaths: [".agents"] }));
+  assert.throws(() => loadConfig(containing), UserError, "a root containing skillsDir is rejected");
+
+  const equal = tempRepo();
+  fs.writeFileSync(path.join(equal, CONFIG_FILENAME), JSON.stringify({ skillSearchPaths: [".agents/skills"] }));
+  assert.throws(() => loadConfig(equal), UserError, "a root equal to skillsDir is rejected");
+
+  // A sibling directory that does not overlap skillsDir stays accepted.
+  const sibling = tempRepo();
+  fs.writeFileSync(path.join(sibling, CONFIG_FILENAME), JSON.stringify({ skillSearchPaths: ["shared"] }));
+  assert.deepEqual(loadConfig(sibling).skillSearchPaths, ["shared"]);
+});
+
 test("skillSearchPaths expands ~ and feeds the read-only awareness list without touching skillsDir", () => {
   const home = os.homedir();
   const config = loadConfig(tempRepo({ skillSearchPaths: ["~/.hermes/skills-shared", "~/.claude/skills"] }));

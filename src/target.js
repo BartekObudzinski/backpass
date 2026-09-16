@@ -74,6 +74,7 @@ export function resolveTarget(spec, scope) {
     const refusal = skillStagingRefusal(root, skill.path, {
       allowExternal: user,
       searchPathRoots: scope.skillSearchPaths || [],
+      skillsDir: scope.overflowDir,
     });
     if (refusal) {
       throw new UserError(

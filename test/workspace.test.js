@@ -532,6 +532,31 @@ test("a search-path root that is an ancestor of the repo never makes the repo's 
   assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor(".agents/skills"))), ["db/SKILL.md"]);
 });
 
+test("a search-path root that equals or contains the repo's own skillsDir never makes it read-only", () => {
+  // config.js validation rejects this shape at load time, but `canonicalizeSearchPathRoots`
+  // and `prepareWorkspace` are reachable directly, so the repo's own skillsDir containment
+  // must win here too - e.g. skillSearchPaths: [".agents"] with skillsDir ".agents/skills".
+  const repo = makeRepo({ "AGENTS.md": AGENTS, ".agents/skills/db/SKILL.md": SKILL });
+
+  assert.equal(canonicalizeSearchPathRoots(repo.root, [".agents"], ".agents/skills").size, 0, "containing case");
+  assert.equal(canonicalizeSearchPathRoots(repo.root, [".agents/skills"], ".agents/skills").size, 0, "equal case");
+
+  const state = new State(repo.root).ensure();
+  const memoryFile = readMemoryFile(repo.root, "AGENTS.md");
+  const skillDirs = resolveProjectSkillDirs(repo.root, ".agents/skills");
+
+  const workspace = prepareWorkspace({
+    state,
+    repo,
+    memoryFile,
+    skillsDir: ".agents/skills",
+    skillDirs,
+    searchPathRoots: [".agents"],
+  });
+  assert.deepEqual(workspace.unstageable, []);
+  assert.deepEqual(walkStaged(path.join(workspace.root, workspacePathFor(".agents/skills"))), ["db/SKILL.md"]);
+});
+
 test("an unresolvable search-path root fails closed rather than being silently dropped", () => {
   const repo = makeRepo({ "AGENTS.md": AGENTS, afile: "x" });
   const state = new State(repo.root).ensure();
